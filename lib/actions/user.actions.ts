@@ -91,3 +91,23 @@ export async function updateCredits(userId: string, creditFee: number) {
     handleError(error);
   }
 }
+
+export async function updatePlan(userId: string, newPlanId: string) {
+    try {
+      await connectToDatabase();
+  
+      const newPlan = await User.findOneAndUpdate(
+        { _id: userId },
+        { payPlan: newPlanId },
+        { new: true }
+      );
+  
+      if (!newPlan) throw new Error("Plan Update failed");
+  
+      return JSON.parse(JSON.stringify(newPlan));
+    } catch (error) {
+      handleError(error);
+    }
+  }
+
+

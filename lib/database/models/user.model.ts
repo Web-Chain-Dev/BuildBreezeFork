@@ -31,8 +31,8 @@ const UserSchema = new Schema({
     default: 1,
   },
   payPlan: {
-    type: Number,
-    default: 0,
+    type: String,
+    default: "",
   },
 });
 
