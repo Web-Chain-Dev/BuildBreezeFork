@@ -5,7 +5,7 @@ import InfoCard from "../shared/InfoCard";
 
 const Hero = () => {
   return (
-    <div className="w-screen min-h-screen pt-28 md:pt-8 lg:pt-16 md:px-12 flex flex-col flex-center md:flex-row gap-16">
+    <div className="w-screen h-full md:min-h-screen pt-28 md:pt-8 lg:pt-16 md:px-12 flex flex-col flex-center md:flex-row gap-16">
       <div className="flex flex-col gap-10 max-w-[90vw] md:max-w-[38vw]">
         <h1 className="text-6xl md:text-5xl lg:text-6xl font-semibold  text-purple-400">
           Deploy your project in Days, not Weeks

@@ -22,14 +22,14 @@ const Navbar = () => {
           </h1>
         </div>
         <div className="hidden lg:flex flex-row gap-10 pt-1 items-center">
-          {NavLinks.map((link) => (
+          {/* {NavLinks.map((link) => (
             <h3
               key={link.name}
               className="text-gray-300 text-xl cursor-pointer"
             >
               {link.name}
             </h3>
-          ))}
+          ))} */}
         </div>
       </div>
 

@@ -37,15 +37,14 @@ const TechMotion = ({
     //   style={{ width: "40%", position: "absolute" }}
     // />
     <motion.div
-      className="rounded-[40px] cursor-pointer w-[200px] md:w-[200px] h-[420px] lg:h-[370px] overflow-hidden bg-gray-800 bg-cover bg-center p-2 flex-center flex-col md:flex-row gap-0 md:gap-4 lg:gap-12  "
+      className="rounded-[40px] mt-20 md:mt-10 lg:mt-0 absolute  cursor-pointer w-[200px] h-[420px] md:w-[200px]  lg:h-[340px] overflow-hidden bg-gray-800 bg-cover bg-center p-2 flex-center flex-col md:flex-row gap-0 md:gap-4 lg:gap-12  "
       onClick={handleClick}
       initial="center"
       animate={animate}
       variants={variants}
       transition={{ duration: 0.5 }}
       style={{
-        width: "48%",
-        position: "absolute",
+        width: "42%",
         backgroundImage: `url(${src})`,
       }}
     >

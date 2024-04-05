@@ -98,10 +98,10 @@ export const imagesArray = [
         name: "Create checkout sessions",
       },
       {
-        name: "Handle webhooks to update user's account (subscriptions, one-time payments...)",
+        name: "Handle Stripe Webhooks ",
       },
       {
-        name: "Tips to setup your account & reduce chargebacks",
+        name: "Tips to setup your account ",
       },
     ],
   },
@@ -111,13 +111,13 @@ export const imagesArray = [
     logo: "/assets/nextjs.svg",
     details: [
       {
-        name: "Access anywhere in the world (unlike Stripe)",
+        name: "Access anywhere in the world",
       },
       {
-        name: "Handle webhooks to update user's account (subscriptions, one-time payments...)",
+        name: "Handle Paddle Webhooks",
       },
       {
-        name: "Tips to setup your account & reduce chargebacks",
+        name: "Tips to setup your account",
       },
     ],
   },
@@ -130,10 +130,10 @@ export const imagesArray = [
         name: "Send transactional emails",
       },
       {
-        name: "DNS setup to avoid spam folder (DKIM, DMARC, SPF in subdomain)",
+        name: "DNS setup to avoid spam folder",
       },
       {
-        name: "Webhook to receive & forward emails",
+        name: "Webhook to receive & forward",
       },
     ],
   },

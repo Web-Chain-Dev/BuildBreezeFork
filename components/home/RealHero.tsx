@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import city1 from "/assets/city1.png";
 import city2 from "/assets/city2.png";
@@ -28,6 +28,7 @@ import Image from "next/image";
 const ImageSlider = () => {
   const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4, 5, 6]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const handleNext = (number?: number) => {
     setPositionIndexes((prevIndexes) => {
@@ -38,6 +39,17 @@ const ImageSlider = () => {
       return updatedIndexes;
     });
   };
+
+  //   useEffect(() => {
+  //     const intervalId = setInterval(() => {
+  //       if (!isPaused) {
+  //         // Check if the interval should be active
+  //         handleBack();
+  //       }
+  //     }, 19000);
+
+  //     return () => clearInterval(intervalId);
+  //   }, [isPaused]);
 
   const handleBack = (number?: number) => {
     setPositionIndexes((prevIndexes) => {
@@ -53,12 +65,12 @@ const ImageSlider = () => {
     });
   };
 
-  const logCenterCardIndex = () => {};
-
   const handleClick = (clickedIndex: number) => {
     console.log(`Card with index ${clickedIndex} was clicked.`);
     // Example: Update the state to reflect the clicked card's index
     setCurrentIndex(clickedIndex);
+
+    setIsPaused(true);
 
     // Find the index of the card that is currently in the center position
     const centerCardIndex = positionIndexes.findIndex(
@@ -93,6 +105,10 @@ const ImageSlider = () => {
     ) {
       handleBack(difference);
     }
+
+    setTimeout(() => {
+      setIsPaused(false);
+    }, 12000);
   };
 
   const positions = [
@@ -106,10 +122,10 @@ const ImageSlider = () => {
   ];
 
   return (
-    <div className="flex pt-20 items-center flex-col gap-2 md:gap-4 justify-center bg-[#032B44] h-screen py-24 w-screen">
-      <div className="flex pb-12 flex-col gap-2 text-center">
-        <h3 className="text-blue-500  text-5xl lg:text-8xl font-semibold ">
-          The Tech Stack
+    <div className="flex items-center flex-col gap-2 md:gap-4 pt-52 justify-center bg-[#032B44]  md:h-screen py-24 w-screen">
+      <div className="flex  flex-col gap-2 text-center">
+        <h3 className="text-purple-500  text-5xl lg:text-6xl font-semibold ">
+          Boost your Production
         </h3>
         <p className="text-gray-300 text-[16px] md:text-[18px]">
           Utilize the latest technologies to create your projects
@@ -139,15 +155,24 @@ const ImageSlider = () => {
         // />
       ))}
 
-      <div className="flex flex-row gap-6 pb-12 z-[20]">
+      <div className="flex flex-row items-center gap-6 pb-12 z-[20] mt-[480px] md:mt-[400px]">
         <button
-          className="text-white mt-[400px] bg-indigo-400 rounded-[12px] py-2 px-4"
+          className="text-white  bg-indigo-400 rounded-[12px] py-2 px-4"
           onClick={() => handleNext(1)}
         >
           <StepBack />
         </button>
+        <Button className="flex flex-row p-6 bg-blue-500 hover:bg-purple-700 text-xl font-semibold rounded-xl text-gray-200">
+          <Image
+            src="/assets/logo.png"
+            alt="thundercloud logo"
+            width={50}
+            height={50}
+          />
+          Get BuildBreeze
+        </Button>
         <button
-          className="text-white mt-[400px] bg-indigo-400 rounded-[12px] py-2 px-4"
+          className="text-white  bg-indigo-400 rounded-[12px] py-2 px-4"
           onClick={() => handleBack(1)}
         >
           <StepForward />
