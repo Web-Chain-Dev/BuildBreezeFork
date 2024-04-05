@@ -128,7 +128,7 @@ const ImageSlider = () => {
           Boost your Production
         </h3>
         <p className="text-gray-300 text-[16px] md:text-[18px]">
-          Utilize the latest technologies to create your projects
+          A boilerplate allowing you to create your startup in just days
         </p>
       </div>
       {imagesArray.map((image, index) => (

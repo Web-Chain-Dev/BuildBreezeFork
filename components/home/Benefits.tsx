@@ -3,10 +3,10 @@ import InfoCard from "../shared/InfoCard";
 
 const Benefits = () => {
   return (
-    <div className="w-screen min-h-screen flex-center py-40 ">
+    <div className="w-screen h-screen flex-center bg-cover bg-center">
    
       <InfoCard
-        image="/assets/RedCity.jpg"
+        image="/assets/PurpleCity.jpg"
         image1="/assets/GreenCity.jpg"
         title="Instead of"
         text="working on the repetitive and mundane"

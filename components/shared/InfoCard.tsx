@@ -39,10 +39,7 @@ const InfoCard = ({ image, image1, title, text }: Props) => {
   
   return (
     <div className="flex-center flex-col gap-6">
-      <h3 className="typewriter text-6xl md:text-7xl font-semibold text-center text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-purple-600 to-blue-800">
-        {isFlipped ? "When you can..": "Why waste time on.."}
       
-      </h3>
     <div
       className="flip-card  w-[36vw] h-[80vh] rounded-xl cursor-pointer"
       onClick={handleFlip}
@@ -59,12 +56,16 @@ const InfoCard = ({ image, image1, title, text }: Props) => {
           style={{ backgroundImage: `url(${image})` }}
         >
 
-<div className="absolute inset-0 w-full  h-full rounded-md bg-black opacity-10" />
+<div className="absolute inset-0 w-full  h-full rounded-md bg-black opacity-20" />
 
           <div className="flex flex-col gap-4 z-[10] text-left">
+          <h3 className=" text-5xl md:text-5xl font-semibold">
+        {isFlipped ? "When you can..": "Why waste time on.."}
+      
+      </h3>
             {tasks.map((task, index) => (
-              <p key={index} className="text-white font-semibold text-[20px] md:text-[24px]">
-                {task.description}
+              <p key={index} className="text-gray-300 blue-400 font-semibold text-[20px] md:text-[24px]">
+                {task.description} - <span className="text-red-600"> {task.hours} hrs </span>
               </p>
             ))}
           </div>

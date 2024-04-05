@@ -14,19 +14,19 @@ export const NavLinks = [
 ];
 
 export const tasks = [
-  { description: "Set up emails", hours: 4 },
-  { description: "Design a landing page", hours: 6 },
-  { description: "Handle Stripe webhooks", hours: 4 },
+  { description: "Setting up emails", hours: 4 },
+  { description: "Designing a landing page", hours: 6 },
+  { description: "Handling Stripe webhooks", hours: 4 },
   { description: "SEO tags", hours: 2 },
-  { description: "Apply for Google OAuth", hours: 1 },
-  { description: "DNS records", hours: 3 },
+  { description: "Applying for Google OAuth", hours: 1 },
+  { description: "Setting up DNS records", hours: 3 },
   { description: "Protected API routes", hours: 2 },
   { description: "Overthinking", hours: "∞" },
 ];
 export const imagesArray = [
   {
     name: "Next.js 14",
-    src: "/assets/city1.png",
+    src: "/assets/city1-min.png",
     logo: "/assets/nextjs.svg",
     details: [
       {
@@ -42,7 +42,7 @@ export const imagesArray = [
   },
   {
     name: "Clerk Auth",
-    src: "/assets/city2.png",
+    src: "/assets/city2-min.png",
     logo: "/assets/clerk.png",
     details: [
       {
@@ -59,7 +59,7 @@ export const imagesArray = [
 
   {
     name: "Mongo DB",
-    src: "/assets/city3.png",
+    src: "/assets/city3-min.png",
     logo: "/assets/mongodb-icon.svg",
     details: [
       {
@@ -75,7 +75,7 @@ export const imagesArray = [
   },
   {
     name: "Styling",
-    src: "/assets/planet1.png",
+    src: "/assets/planet1-min.png",
     logo: "/assets/tailwind.png",
     details: [
       {
@@ -91,7 +91,7 @@ export const imagesArray = [
   },
   {
     name: "Stripe Payments",
-    src: "/assets/planet2.png",
+    src: "/assets/planet2-min.png",
     logo: "/assets/stripe.webp",
     details: [
       {
