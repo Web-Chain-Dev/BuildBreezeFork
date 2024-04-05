@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import MobileMenuBar from "./MobileMenuBar";
 import FeedBackDialog from "./FeedBackDialog";
 import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
@@ -20,6 +21,7 @@ const Navbar = () => {
           <h1 className="text-[30px] font-semibold md:h1-semibold text-blue-500 ">
             BuildBreeze
           </h1>
+          <UserButton />
         </div>
         <div className="hidden lg:flex flex-row gap-10 pt-1 items-center">
           {/* {NavLinks.map((link) => (
