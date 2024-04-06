@@ -24,9 +24,11 @@ export async function getUserById(userId: string) {
   try {
     await connectToDatabase();
 
-    const user = await User.findOne({ clerkId: userId });
+    let user = await User.findOne({ clerkId: userId });
 
     if (!user) throw new Error("User not found");
+
+    user = await User.findOne({ clerkId: userId });
 
     return JSON.parse(JSON.stringify(user));
   } catch (error) {
@@ -93,21 +95,19 @@ export async function updateCredits(userId: string, creditFee: number) {
 }
 
 export async function updatePlan(userId: string, newPlanId: string) {
-    try {
-      await connectToDatabase();
-  
-      const newPlan = await User.findOneAndUpdate(
-        { _id: userId },
-        { payPlan: newPlanId },
-        { new: true }
-      );
-  
-      if (!newPlan) throw new Error("Plan Update failed");
-  
-      return JSON.parse(JSON.stringify(newPlan));
-    } catch (error) {
-      handleError(error);
-    }
+  try {
+    await connectToDatabase();
+
+    const newPlan = await User.findOneAndUpdate(
+      { _id: userId },
+      { payPlan: newPlanId },
+      { new: true }
+    );
+
+    if (!newPlan) throw new Error("Plan Update failed");
+
+    return JSON.parse(JSON.stringify(newPlan));
+  } catch (error) {
+    handleError(error);
   }
-
-
+}

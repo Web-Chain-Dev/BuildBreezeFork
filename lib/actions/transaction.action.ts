@@ -28,8 +28,8 @@ export async function checkoutPlan(transaction: CheckoutTransactionParams) {
             buyerId: transaction.buyerId
         },
         mode: 'payment',
-        success_url: `http://localhost:3000/`,
-        cancel_url: `http://localhost:3000/`
+        success_url: `https://build-breeze.vercel.app/`,
+        cancel_url: `https://build-breeze.vercel.app/`
     })
 
     redirect(session.url!)

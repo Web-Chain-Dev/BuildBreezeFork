@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
@@ -10,17 +9,12 @@ import PricingPlan from "./PricingPlan";
 import { plans } from "@/constants";
 
 const Pricing = async () => {
-
   const { userId } = auth();
 
   if (!userId) redirect("/sign-in");
 
   const user = await getUserById(userId);
-
-
-
   return (
-
     <div className="w-full min-h-screen mx-auto px-4 py-8 bg-[#032B44]">
       <h2 className="text-6xl text-blue-500 font-bold text-center mb-8">
         Pricing Plans
@@ -28,14 +22,17 @@ const Pricing = async () => {
       <div className="flex flex-wrap items-center justify-center gap-4">
         {/* Free Plan */}
         {plans.map((plan, index) => (
-          <PricingPlan image={plan.image} key={index} plan={plan.plan} amount={plan.amount} buyerId={user._id} />
+          <PricingPlan
+            type="main"
+            image={plan.image}
+            key={index}
+            plan={plan.plan}
+            amount={plan.amount}
+            buyerId={user._id}
+          />
         ))}
-       {/* <PricingPlan buyerId={user._id} /> */}
-        {/* Pro Plan */}
-       
       </div>
     </div>
-
   );
 };
 
