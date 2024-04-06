@@ -11,9 +11,12 @@ export async function POST(request: Request) {
   const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
   let event;
+  return NextResponse.json({ message: "Webhook error", error: "hello" });
+
 
   try {
     event = stripe.webhooks.constructEvent(body, sig, endpointSecret);
+    return NextResponse.json({ message: "Webhook error", error: "hello" });
   } catch (err) {
     
     return NextResponse.json({ message: "Webhook error", error: err });
