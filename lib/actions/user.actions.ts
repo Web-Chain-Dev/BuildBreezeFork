@@ -1,4 +1,5 @@
 "use server";
+import axios from "axios";
 
 import { revalidatePath } from "next/cache";
 
@@ -84,23 +85,6 @@ export async function deleteUser(clerkId: string) {
 }
 
 // USE CREDITS
-export async function updateCredits(userId: string, creditFee: number) {
-  try {
-    await connectToDatabase();
-
-    const updatedUserCredits = await User.findOneAndUpdate(
-      { _id: userId },
-      { $inc: { creditBalance: creditFee } },
-      { new: true }
-    );
-
-    if (!updatedUserCredits) throw new Error("User credits update failed");
-
-    return JSON.parse(JSON.stringify(updatedUserCredits));
-  } catch (error) {
-    handleError(error);
-  }
-}
 
 export async function updatePlan(userId: string, newPlanId: string) {
   try {
@@ -117,5 +101,44 @@ export async function updatePlan(userId: string, newPlanId: string) {
     return JSON.parse(JSON.stringify(newPlan));
   } catch (error) {
     handleError(error);
+  }
+}
+
+// Function to add a user as a collaborator to a GitHub repository
+export async function addUserToGitHubRepo(
+  githubUsername: string,
+  repoOwner: string,
+  repoName: string
+) {
+  try {
+    // Replace 'your_github_token' with your actual GitHub token
+    const githubToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+
+    // GitHub API endpoint for adding a collaborator
+    const url = `https://api.github.com/repos/${repoOwner}/${repoName}/collaborators/${githubUsername}`;
+
+    // Headers for the GitHub API request
+    const headers = {
+      Authorization: `token ${githubToken}`,
+    };
+
+    // Make the API request to add the user as a collaborator
+    const response = await axios.put(url, {}, { headers });
+
+    // Check if the request was successful
+    if (response.status === 201) {
+      console.log(
+        `Successfully added ${githubUsername} as a collaborator to the repository.`
+      );
+      return true;
+    } else {
+      console.error(
+        `Failed to add ${githubUsername} as a collaborator. Status code: ${response.status}`
+      );
+      return false;
+    }
+  } catch (error) {
+    console.error(`Error adding ${githubUsername} as a collaborator:`, error);
+    return false;
   }
 }

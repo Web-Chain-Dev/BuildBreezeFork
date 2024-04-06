@@ -1,6 +1,7 @@
 import PricingPlan from "@/components/home/PricingPlan";
+import { Button } from "@/components/ui/button";
 import { plans } from "@/constants";
-import { getUserById } from "@/lib/actions/user.actions";
+import { addUserToGitHubRepo, getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import React from "react";
