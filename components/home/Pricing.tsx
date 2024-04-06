@@ -24,7 +24,7 @@ const Pricing = async () => {
       </h2>
       <div className="flex flex-wrap items-center justify-center gap-4">
         {/* Free Plan */}
-       <PricingPlan user={user} />
+       <PricingPlan buyerId={user._id} />
         {/* Pro Plan */}
         <div className="w-[90%] sm:w-1/2 lg:w-1/3 p-4">
           <div className="bg-gray-800 rounded-xl bg-center bg-cover relative border-[3px] border-blue-500 shadow-lg p-6" style={{backgroundImage: "url(/assets/planet2.png)"}}>

@@ -1,17 +1,21 @@
 "use client"
 
 import { checkoutPlan } from '@/lib/actions/transaction.action'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from '../ui/button'
 import Image from 'next/image'
 
-const PricingPlan = (user: any) => {
+const PricingPlan = (buyerId: any) => {
+
+  useEffect(() => {
+    console.log(buyerId)
+  }, [buyerId])
      
     const onCheckout = async () => {
         const transaction = {
           plan: "basic",
           amount: 25,
-          buyerId: user._id
+          buyerId: buyerId
         }
     
         await checkoutPlan(transaction)
