@@ -4,25 +4,30 @@ import { NextResponse } from "next/server";
 import stripe from "stripe";
 
 export async function POST(request: Request) {
-  
-  const body = await request.text();
+ const body = await request.text();
+ const sig = request.headers.get("stripe-signature") as string;
+ const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
-  const sig = request.headers.get("stripe-signature") as string;
-  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+ let event;
 
-  let event;
-  // return NextResponse.json({ message: "Webhook error", error: "hello" });
-
-
-  try {
+ try {
     event = stripe.webhooks.constructEvent(body, sig, endpointSecret);
-    // return NextResponse.json({ message: "Webhook error", error: "hello" });
-  } catch (err) {
-    
-    return NextResponse.json({ message: "Webhook error", error: "hello" });
-  
-  }
+    // Handle the event here
+    // For example, if you want to log the event type:
+    console.log(`Received event: ${event.type}`);
+
+    // After handling the event, return a successful response
+    return NextResponse.json({ received: true });
+ } catch (err: any) {
+    // Log the error for debugging
+    console.error(`Webhook error: ${err.message}`);
+
+    // Return an error response
+    return NextResponse.json({ message: "Webhook error", error: err.message });
+ }
 }
+
+
 
   // Get the ID and type
   // const eventType = event.type;
