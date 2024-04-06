@@ -21,7 +21,7 @@ const Page = async () => {
           plan={plan.plan}
           amount={plan.amount}
           image={plan.image}
-          buyerId={user._id}
+          buyerId={user}
         />
       ))}
     </div>

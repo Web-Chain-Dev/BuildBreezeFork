@@ -21,19 +21,26 @@ export async function createUser(user: CreateUserParams) {
 
 // READ
 export async function getUserById(userId: string) {
-  try {
-    await connectToDatabase();
+  return new Promise((resolve, reject) => {
+    setTimeout(async () => {
+      try {
+        await connectToDatabase();
 
-    let user = await User.findOne({ clerkId: userId });
+        let user = await User.findOne({ clerkId: userId });
 
-    if (!user) throw new Error("User not found");
+        if (!user) {
+          user = await User.findOne({ clerkId: userId });
+          throw new Error("User not found");
+        }
 
-    user = await User.findOne({ clerkId: userId });
+        user = await User.findOne({ clerkId: userId });
 
-    return JSON.parse(JSON.stringify(user));
-  } catch (error) {
-    handleError(error);
-  }
+        resolve(JSON.parse(JSON.stringify(user)));
+      } catch (error) {
+        reject(error);
+      }
+    }, 1000); // Delay of 1 second
+  });
 }
 
 // UPDATE

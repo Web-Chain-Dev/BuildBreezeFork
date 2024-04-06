@@ -9,11 +9,6 @@ import PricingPlan from "./PricingPlan";
 import { plans } from "@/constants";
 
 const Pricing = async () => {
-  const { userId } = auth();
-
-  if (!userId) redirect("/sign-in");
-
-  const user = await getUserById(userId);
   return (
     <div className="w-full min-h-screen mx-auto px-4 py-8 bg-[#032B44]">
       <h2 className="text-6xl text-blue-500 font-bold text-center mb-8">
@@ -28,7 +23,7 @@ const Pricing = async () => {
             key={index}
             plan={plan.plan}
             amount={plan.amount}
-            buyerId={user._id}
+            buyerId={""}
           />
         ))}
       </div>
