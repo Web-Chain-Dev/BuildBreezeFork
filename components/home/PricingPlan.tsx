@@ -5,7 +5,12 @@ import React, { useEffect } from 'react'
 import { Button } from '../ui/button'
 import Image from 'next/image'
 
-const PricingPlan = (buyerId: any) => {
+type PricingPlanProps = {
+  buyerId: string;
+ };
+ 
+
+const PricingPlan = ({buyerId}: PricingPlanProps) => {
 
   useEffect(() => {
     console.log(buyerId)
@@ -15,7 +20,8 @@ const PricingPlan = (buyerId: any) => {
         const transaction = {
           plan: "basic",
           amount: 25,
-          buyerId: "66108f92408c1fbb0fe29286"
+          buyerId: buyerId
+          // buyerId: "66108f92408c1fbb0fe29286"
         }
     
         await checkoutPlan(transaction)
