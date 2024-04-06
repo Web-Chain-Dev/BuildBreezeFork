@@ -10,7 +10,7 @@ const Page = async () => {
 
   if (!userId) redirect("/sign-in");
 
-  const user = await getUserById(userId);
+  const user: any = await getUserById(userId);
 
   return (
     <div className="w-screen h-screen flex-center">

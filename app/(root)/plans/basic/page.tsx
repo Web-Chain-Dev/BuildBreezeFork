@@ -5,12 +5,14 @@ import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import React from "react";
 
+// Define a type for the user object
+
 const Page = async () => {
   const { userId } = auth();
 
   if (!userId) redirect("/sign-in");
 
-  const user = await getUserById(userId);
+  const user: any = await getUserById(userId);
 
   return (
     <div className="w-screen h-screen flex-center">
@@ -21,7 +23,7 @@ const Page = async () => {
           plan={plan.plan}
           amount={plan.amount}
           image={plan.image}
-          buyerId={user}
+          buyerId={user._id}
         />
       ))}
     </div>

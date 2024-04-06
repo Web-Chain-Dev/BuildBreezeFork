@@ -1,13 +1,18 @@
+"use client";
+
 import { NavLinks } from "@/constants";
-import link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
 import MobileMenuBar from "./MobileMenuBar";
 import FeedBackDialog from "./FeedBackDialog";
 import Image from "next/image";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useClerk } from "@clerk/nextjs";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const path = usePathname();
+  const { signOut } = useClerk();
+  const router = useRouter();
   return (
     <div className="header h-[10px]">
       <div className="header-elements">
@@ -21,7 +26,6 @@ const Navbar = () => {
           <h1 className="text-[30px] font-semibold md:h1-semibold text-blue-500 ">
             BuildBreeze
           </h1>
-          <UserButton />
         </div>
         <div className="hidden lg:flex flex-row gap-10 pt-1 items-center">
           {/* {NavLinks.map((link) => (
@@ -35,7 +39,16 @@ const Navbar = () => {
         </div>
       </div>
 
-      <FeedBackDialog classes="hidden md:flex" />
+      {path === "/" ? (
+        <FeedBackDialog classes="hidden md:flex" />
+      ) : (
+        <Button
+          className="p-6 px-4 bg-blue-500 flex items-center flex-row gap-3 hover:bg-purple-700 text-xl font-semibold rounded-xl text-gray-200"
+          onClick={() => signOut(() => router.push("/"))}
+        >
+          <UserButton /> Sign out
+        </Button>
+      )}
 
       <MobileMenuBar />
     </div>

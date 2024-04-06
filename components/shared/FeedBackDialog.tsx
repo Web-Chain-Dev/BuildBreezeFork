@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import FeedBackForm from "./FeedBackForm";
+import { usePathname } from "next/navigation";
 
 const FeedBackDialog = ({ classes }: { classes?: string }) => {
   return (
