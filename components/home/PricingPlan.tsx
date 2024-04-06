@@ -21,7 +21,6 @@ const PricingPlan = ({buyerId}: PricingPlanProps) => {
           plan: "basic",
           amount: 25,
           buyerId: buyerId
-          // buyerId: "66108f92408c1fbb0fe29286"
         }
     
         await checkoutPlan(transaction)
