@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
   let event;
-  return NextResponse.json({ message: "Webhook error", error: "hello" });
+  // return NextResponse.json({ message: "Webhook error", error: "hello" });
 
 
   try {
@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "Webhook error", error: "hello" });
   } catch (err) {
     
-    return NextResponse.json({ message: "Webhook error", error: err });
+    return NextResponse.json({ message: "Webhook error", error: err + "hello" });
   
   }
 }
