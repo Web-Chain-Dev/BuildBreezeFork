@@ -23,6 +23,19 @@ export const tasks = [
   { description: "Protected API routes", hours: 2 },
   { description: "Overthinking", hours: "∞" },
 ];
+
+export const plans = [
+  {
+    plan: "Basic",
+    amount: 25,
+    image: "/assets/city1.png"
+  },
+  {
+    plan: "Pro",
+    amount: 35,
+    image: "/assets/planet2.png"
+  }
+]
 export const imagesArray = [
   {
     name: "Next.js 14",

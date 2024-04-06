@@ -6,11 +6,14 @@ import { Button } from '../ui/button'
 import Image from 'next/image'
 
 type PricingPlanProps = {
+  plan: string;
+  amount: number;
   buyerId: string;
+  image: string;
  };
  
 
-const PricingPlan = ({buyerId}: PricingPlanProps) => {
+const PricingPlan = ({image, plan, amount, buyerId}: PricingPlanProps) => {
 
   useEffect(() => {
     console.log(buyerId)
@@ -18,8 +21,8 @@ const PricingPlan = ({buyerId}: PricingPlanProps) => {
      
     const onCheckout = async () => {
         const transaction = {
-          plan: "basic",
-          amount: 25,
+          plan: plan,
+          amount: amount,
           buyerId: buyerId
         }
     
@@ -27,14 +30,14 @@ const PricingPlan = ({buyerId}: PricingPlanProps) => {
       }
   return (
     <div className="w-[90%] sm:w-1/2 lg:w-1/3 p-4 rounded-xl">
-    <div className="bg-gray-800 bg-center bg-cover shadow-lg relative  p-6 rounded-xl" style={{backgroundImage: "url(/assets/city1.png)"}}>
+    <div className="bg-gray-800 bg-center bg-cover shadow-lg relative  p-6 rounded-xl" style={{backgroundImage: `url(${image})`}}>
     <div className="absolute inset-0 w-full  h-full bg-black opacity-15 rounded-xl" />
 
       <h3 className="text-4xl font-bold text-center mb-4 text-purple-400 z-[10]">
-        Basic
+        {plan}
       </h3>
       <h3 className="text-5xl text-gray-800 text-center pb-4 font-semibold">
-        $15 USD
+        ${amount} USD
       </h3>
       <ul className="text-center text-white gray-300 text-[20px] z-[10]">
         
