@@ -13,34 +13,40 @@ export async function POST(request: Request) {
     event = stripe.webhooks.constructEvent(body, sig, endpointSecret);
     console.log(`Received event: ${event.type}`);
 
-    // Handle the event here
     const eventType = event.type;
 
-    // CREATE
     if (eventType === "checkout.session.completed") {
       const { id, amount_total, metadata } = event.data.object;
+
+      // Validate buyerId before creating the transaction
+      const buyerId = metadata?.buyerId;
+      if (!buyerId || !isValidObjectId(buyerId)) {
+        console.error('Invalid buyerId:', buyerId);
+        // Handle the error, e.g., by returning an error response
+        return NextResponse.json({ message: "Invalid buyerId", error: "Invalid buyerId" });
+      }
 
       const transaction = {
         stripeId: id,
         amount: amount_total ? amount_total / 100 : 0,
         plan: metadata?.plan || "",
-        buyerId: metadata?.buyerId || "",
+        buyerId: buyerId, // Only include if valid
         createdAt: new Date(),
       };
 
       const newTransaction = await createTransaction(transaction);
       
-      // Return a response indicating success and including the new transaction
       return NextResponse.json({ message: "OK", transaction: newTransaction });
     }
 
-    // Return a successful response for other event types or if no action is taken
     return NextResponse.json({ received: true });
  } catch (err: any) {
-    // Log the error for debugging
     console.error(`Webhook error: ${err.message}`);
-
-    // Return an error response
     return NextResponse.json({ message: "Webhook error", error: err.message });
  }
+}
+
+// Helper function to check if a string is a valid ObjectId
+function isValidObjectId(id: string): boolean {
+ return /^[0-9a-fA-F]{24}$/.test(id);
 }
