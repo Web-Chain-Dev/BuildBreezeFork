@@ -134,8 +134,6 @@ export async function addUserToGitHubRepo(
     // Replace 'your_github_token' with your actual GitHub token
     const githubToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
 
-    await setGithubUsername(userId, githubUsername);
-
     // GitHub API endpoint for adding a collaborator
     const url = `https://api.github.com/repos/${repoOwner}/${repoName}/collaborators/${githubUsername}`;
 
@@ -152,6 +150,7 @@ export async function addUserToGitHubRepo(
       console.log(
         `Successfully added ${githubUsername} as a collaborator to the repository.`
       );
+      await setGithubUsername(userId, githubUsername);
       return true;
     } else {
       console.error(
@@ -173,7 +172,7 @@ export async function setGithubUsername(userId: string, newUsername: string) {
       { new: true }
     );
 
-    const username = User.findOneAndUpdate(
+    const username = await User.findOneAndUpdate(
       { _id: userId },
       { githubUsername: newUsername },
       { new: true }
