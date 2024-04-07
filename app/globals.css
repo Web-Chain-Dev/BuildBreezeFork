@@ -28,24 +28,30 @@ body {
 
 .typewriter {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
+  border-right: 0.15em solid orange; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation: 
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }
 
 /* ========================================== TAILWIND STYLES */
@@ -317,6 +323,31 @@ body {
   .transformed-placeholder {
     @apply flex-center p-14-medium h-full min-h-72 flex-col gap-5 rounded-[16px] border border-dashed bg-purple-100/20 shadow-inner;
   }
+}
+
+/* Custom scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  width: 6px; /* Adjust scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+  background: #032b44; /* Track color */
+  /* border-radius: 10px; */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #624cf5; /* Thumb color */
+  /* border-radius: 10px; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5547e0; /* Thumb color on hover */
+}
+
+/* Fallback for Firefox and other browsers */
+html {
+  scrollbar-color: #624cf5 #094266; /* Thumb and track color */
+  scrollbar-width: 6px; /* Width of the scrollbar */
 }
 
 @layer utilities {

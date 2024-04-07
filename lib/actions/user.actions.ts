@@ -41,7 +41,7 @@ export async function getUserById(userId: string) {
       } catch (error) {
         reject(error);
       }
-    }, 1000); // Delay of 1 second
+    }, 2000); // Delay of 1 second
   });
 }
 
@@ -183,7 +183,7 @@ export async function setGithubUsername(userId: string, newUsername: string) {
   }
 }
 
-export async function isLoggedInToGithub(userId: string) {
+export async function getIsLoggedInToGithub(userId: string) {
   try {
     await connectToDatabase();
 
@@ -198,7 +198,9 @@ export async function isLoggedInToGithub(userId: string) {
     }
 
     // Return the loggedInToGithub field value
-    return user.loggedInToGithub;
+    console.log(user);
+    console.log(user.loggedInToGithub);
+    return user;
   } catch (error) {
     handleError(error);
   }

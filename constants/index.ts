@@ -24,18 +24,51 @@ export const tasks = [
   { description: "Overthinking", hours: "∞" },
 ];
 
+export const FAQquestions = [
+  {
+    value: "item-1",
+    question: "Is it accessible?",
+    answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+  },
+  {
+    value: "item-2",
+    question: "Is it styled?",
+    answer:
+      "Yes. It comes with default styles that match the other components' aesthetic.",
+  },
+  {
+    value: "item-3",
+    question: "Is it animated?",
+    answer:
+      "Yes. It's animated by default, but you can disable it if you prefer.",
+  },
+  {
+    value: "item-4",
+    question: "How can I customize it?",
+    answer:
+      "You can customize Shadcn components by adding your own styles or variants.",
+  },
+  {
+    value: "item-5",
+    question: "What is Shadcn?",
+    answer:
+      "Shadcn UI is a collection of beautifully designed, accessible, and customizable React components for building modern web applications with Next.js.",
+  },
+  // Add more questions and answers as needed
+];
+
 export const plans = [
   {
     plan: "Basic",
     amount: 25,
-    image: "/assets/city1.png"
+    image: "/assets/city1.png",
   },
   {
     plan: "Pro",
     amount: 35,
-    image: "/assets/planet2.png"
-  }
-]
+    image: "/assets/planet2.png",
+  },
+];
 export const imagesArray = [
   {
     name: "Next.js 14",
@@ -152,4 +185,49 @@ export const imagesArray = [
   },
   // { name: "SpaceCity4", src: "/assets/SpaceCity4.jpeg" },
   // { name: "SpaceCity5", src: "/assets/SpaceCity5.jpeg" },
+];
+
+export const techStack = [
+  {
+    name: "Project 1",
+    src: "/assets/bluepurple2.jpg",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    name: "Youtube",
+    src: "/assets/bluepurple3.jpg",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    name: "Discord",
+    src: "/assets/bluepurple4.jpg",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    name: "Discord",
+    src: "/assets/bluepurple5.jpg",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    name: "Discord",
+    src: "/assets/bluepurple6.jpg",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    name: "Discord",
+    src: "/assets/bluepurple7.jpg",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    name: "Discord",
+    src: "/assets/bluepurple9.jpg",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
 ];

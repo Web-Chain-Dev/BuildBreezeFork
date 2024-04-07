@@ -124,7 +124,7 @@ const ImageSlider = () => {
   return (
     <div className="flex items-center flex-col gap-2 md:gap-4 pt-52 justify-center bg-[#032B44]  md:h-screen py-24 w-screen">
       <div className="flex  flex-col gap-2 text-center">
-        <h3 className="text-purple-500  text-5xl lg:text-6xl font-semibold ">
+        <h3 className="text-purple-500  text-5xl lg:text-6xl font-semibold">
           Boost your Production
         </h3>
         <p className="text-gray-300 text-[16px] md:text-[18px]">

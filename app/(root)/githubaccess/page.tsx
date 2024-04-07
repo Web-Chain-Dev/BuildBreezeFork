@@ -1,5 +1,9 @@
 import PlanForm from "@/components/shared/PlanForm";
-import { getUserById, getUserPayPlanById } from "@/lib/actions/user.actions";
+import {
+  getIsLoggedInToGithub,
+  getUserById,
+  getUserPayPlanById,
+} from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs";
 import { CheckCheckIcon } from "lucide-react";
 import { redirect } from "next/navigation";
@@ -17,7 +21,14 @@ const Page = async () => {
 
   const plan = await getUserPayPlanById(user._id);
 
+  const loggedInToGithubResult = await getIsLoggedInToGithub(user._id);
+  const loggedInToGithub = loggedInToGithubResult.loggedInToGithub;
+
   if (plan.toLowerCase() !== "pro" && plan.toLowerCase() !== "basic") {
+    redirect("/");
+  }
+
+  if (loggedInToGithub === true) {
     redirect("/");
   }
 
@@ -25,7 +36,7 @@ const Page = async () => {
     <div className="w-screen min-h-screen flex-center flex-col gap-6">
       <div className="flex flex-col items-center gap-3 pt-20 md:py-0">
         <h3 className="text-6xl md:text-7xl text-blue-500 font-semibold text-center">
-          Welcome to BuildBeeze
+          Welcome to BuildBreeze
         </h3>
         <p className=" md:hidden text-[16px] text-center md:text-[18px] text-gray-400 max-w-[82vw]">
           By entering your github username you get access to these repositories:
@@ -78,7 +89,7 @@ const Page = async () => {
                     Saas Javascript + Stripe
                   </h3>
                 </div>
-                
+
                 <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
                   <CheckCheckIcon />
                   <h3 className="text-gray-200 blue-500 text-[18px]">
@@ -86,7 +97,6 @@ const Page = async () => {
                   </h3>
                 </div>
               </div>
-             
             </div>
           )}
         </div>

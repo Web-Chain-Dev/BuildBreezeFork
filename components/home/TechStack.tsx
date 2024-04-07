@@ -1,27 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import city1 from "/assets/city1.png";
-import city2 from "/assets/city2.png";
-import city3 from "/assets/city3.png";
-import planet1 from "/assets/planet1.png";
-import planet2 from "/assets/planet2.png";
-import SpaceCity2 from "/assets/SpaceCity2.jpeg";
-import SpaceCity3 from "/assets/SpaceCity3.jpeg";
-import SpaceCity4 from "/assets/SpaceCity4.jpeg";
-import SpaceCity5 from "/assets/SpaceCity5.jpeg";
 import { imagesArray } from "@/constants";
 import { imageVariants } from "@/motion/variants";
 import TechMotion from "../shared/TechMotion";
-import { difference } from "next/dist/build/utils";
-import {
-  ArrowBigLeft,
-  ArrowLeft,
-  ArrowBigLeftDash,
-  StepBack,
-  StepForward,
-} from "lucide-react";
+
+import { StepBack, StepForward } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 

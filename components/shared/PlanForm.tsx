@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -71,7 +71,7 @@ const PlanForm = ({ repoName, repoOwner, buyerId }: PlanFormType) => {
           name="username"
           render={({ field }) => (
             <FormItem className="flex flex-col justify-center">
-              <FormLabel className="text-gray-300 text-center">
+              <FormLabel className="text-gray-300 text-center md:max-w-[18vw]">
                 Make sure to enter your correct username (you can&apos;t change
                 it later)
               </FormLabel>
@@ -89,7 +89,7 @@ const PlanForm = ({ repoName, repoOwner, buyerId }: PlanFormType) => {
         />
         <Button
           type="submit"
-          className="p-6  bg-blue-500 hover:bg-blue-700 text-xl font-semibold rounded-xl text-white z-[10]"
+          className="p-6 bg-blue-500 hover:bg-blue-700 text-xl font-semibold rounded-xl text-white z-[10]"
         >
           Get Github Access
         </Button>
