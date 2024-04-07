@@ -13,7 +13,7 @@ const OpenCards = () => {
 
   const cardVariants = {
     expanded: {
-      width: "520px",
+      width: "80vw",
     },
     collapsed: {
       width: "300px",
@@ -23,7 +23,7 @@ const OpenCards = () => {
   return (
     <section className=" bg-transparent w-full h-full flex flex-col gap-4 items-center">
       <div className="flex flex-col gap-12">
-        <div className=" flex flex-col md:flex-row justify-center items-center gap-5">
+        <div className=" flex flex-col lg:flex-row justify-center items-center gap-5">
           {techStack.slice(0, 3).map((project, index) => (
             <motion.div
               key={project.name}
@@ -53,7 +53,7 @@ const OpenCards = () => {
           ))}
         </div>
 
-        <div className=" flex flex-col md:flex-row justify-center items-center gap-5">
+        <div className=" flex flex-col lg:flex-row justify-center items-center gap-5">
           {techStack.slice(3, 7).map((project, index) => {
             index = index + 3;
             return (
