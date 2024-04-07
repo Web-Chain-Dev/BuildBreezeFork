@@ -46,7 +46,7 @@ const PricingPlan = ({
         <h3 className="text-4xl font-bold text-center mb-4 text-purple-400 z-[10]">
           {plan}
         </h3>
-        <h3 className="text-5xl text-gray-800 text-center pb-4 font-semibold">
+        <h3 className="text-5xl  text-gray-800 text-center pb-4 font-semibold">
           ${amount} USD
         </h3>
         <ul className="text-center text-white gray-300 text-[20px] z-[10]">
@@ -63,7 +63,7 @@ const PricingPlan = ({
         {type === "main" ? (
           <Link
             href={`/plans/${plan.toLowerCase()}`}
-            className="text-center flex-center mt-6"
+            className="-center flex-center mt-6"
           >
             <Button className="flex flex-row p-6 bg-blue-500 hover:bg-blue-700 text-xl font-semibold rounded-xl text-white z-[10]">
               <Image

@@ -104,8 +104,28 @@ export async function updatePlan(userId: string, newPlanId: string) {
   }
 }
 
+// FIND USER'S PAYPLAN BY ID
+export async function getUserPayPlanById(userId: string) {
+  try {
+    await connectToDatabase();
+
+    // Query the database to find the user by their ID and project only the payPlan field
+    const user = await User.findOne({ _id: userId }, { payPlan: 1, _id: 0 });
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    // Return the payPlan field value
+    return user.payPlan;
+  } catch (error) {
+    handleError(error);
+  }
+}
+
 // Function to add a user as a collaborator to a GitHub repository
 export async function addUserToGitHubRepo(
+  userId: string,
   githubUsername: string,
   repoOwner: string,
   repoName: string
@@ -113,6 +133,8 @@ export async function addUserToGitHubRepo(
   try {
     // Replace 'your_github_token' with your actual GitHub token
     const githubToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+
+    await setGithubUsername(userId, githubUsername);
 
     // GitHub API endpoint for adding a collaborator
     const url = `https://api.github.com/repos/${repoOwner}/${repoName}/collaborators/${githubUsername}`;
@@ -140,5 +162,45 @@ export async function addUserToGitHubRepo(
   } catch (error) {
     console.error(`Error adding ${githubUsername} as a collaborator:`, error);
     return false;
+  }
+}
+
+export async function setGithubUsername(userId: string, newUsername: string) {
+  try {
+    const login = await User.findOneAndUpdate(
+      { _id: userId },
+      { loggedInToGithub: true },
+      { new: true }
+    );
+
+    const username = User.findOneAndUpdate(
+      { _id: userId },
+      { githubUsername: newUsername },
+      { new: true }
+    );
+    return JSON.parse(JSON.stringify(username, login));
+  } catch (err) {
+    handleError(err);
+  }
+}
+
+export async function isLoggedInToGithub(userId: string) {
+  try {
+    await connectToDatabase();
+
+    // Query the database to find the user by their ID and project only the loggedInToGithub field
+    const user = await User.findOne(
+      { _id: userId },
+      { loggedInToGithub: 1, _id: 0 }
+    );
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    // Return the loggedInToGithub field value
+    return user.loggedInToGithub;
+  } catch (error) {
+    handleError(error);
   }
 }

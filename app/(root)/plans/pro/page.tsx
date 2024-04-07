@@ -1,7 +1,11 @@
 import PricingPlan from "@/components/home/PricingPlan";
 import { Button } from "@/components/ui/button";
 import { plans } from "@/constants";
-import { addUserToGitHubRepo, getUserById } from "@/lib/actions/user.actions";
+import {
+  addUserToGitHubRepo,
+  getUserById,
+  getUserPayPlanById,
+} from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -12,6 +16,13 @@ const Page = async () => {
   if (!userId) redirect("/sign-in");
 
   const user: any = await getUserById(userId);
+
+  // const plan = "Hallo";
+  const plan = await getUserPayPlanById(user._id);
+
+  if (plan.toLowerCase() === "pro") {
+    redirect("/githubaccess");
+  }
 
   return (
     <div className="w-screen h-screen flex-center">

@@ -23,7 +23,7 @@ const Navbar = () => {
             width={74}
             height={74}
           />
-          <h1 className="text-[30px] font-semibold md:h1-semibold text-blue-500 ">
+          <h1 className="text-[40px] md:text-[30px] font-semibold md:h1-semibold text-blue-500 ">
             BuildBreeze
           </h1>
         </div>

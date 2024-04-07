@@ -48,23 +48,6 @@ export async function createTransaction(transaction: CreateTransactionParams) {
 
     await updatePlan(transaction.buyerId, transaction.plan);
 
-    const githubUsername = "WebchainDevelopment";
-    const repoOwner = "Mif2006";
-    const repoName = "BuildBreezeBoilerplate";
-
-    // Grant access to the GitHub repository
-    const success = await addUserToGitHubRepo(
-      githubUsername,
-      repoOwner,
-      repoName
-    );
-
-    if (success) {
-      console.log("Access granted to GitHub repository.");
-    } else {
-      console.error("Failed to grant access to GitHub repository.");
-    }
-
     return JSON.parse(JSON.stringify(newTransaction));
   } catch (error) {
     handleError(error);

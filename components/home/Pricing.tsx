@@ -1,10 +1,4 @@
-import React, { useEffect } from "react";
-import { Button } from "../ui/button";
-import Image from "next/image";
-import { checkoutPlan } from "@/lib/actions/transaction.action";
-import { SignedIn, auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
-import { getUserById } from "@/lib/actions/user.actions";
+import React from "react";
 import PricingPlan from "./PricingPlan";
 import { plans } from "@/constants";
 
