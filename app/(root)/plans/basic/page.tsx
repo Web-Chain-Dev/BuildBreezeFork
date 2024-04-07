@@ -16,7 +16,7 @@ const Page = async () => {
 
   const plan = await getUserPayPlanById(user._id);
 
-  if (plan.toLowerCase() === "basic") {
+  if (plan.toLowerCase() === "basic" || plan.toLowerCase() === "pro") {
     redirect("/githubaccess");
   }
 

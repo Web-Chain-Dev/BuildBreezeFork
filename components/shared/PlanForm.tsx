@@ -48,7 +48,7 @@ const PlanForm = ({ repoName, repoOwner, buyerId }: PlanFormType) => {
       buyerId,
       username,
       repoOwner,
-      repoName,
+      repoName
     );
 
     if (success) {
@@ -72,7 +72,8 @@ const PlanForm = ({ repoName, repoOwner, buyerId }: PlanFormType) => {
           render={({ field }) => (
             <FormItem className="flex flex-col justify-center">
               <FormLabel className="text-gray-300 text-center">
-                Make sure to enter your correct username
+                Make sure to enter your correct username (you can&apos;t change
+                it later)
               </FormLabel>
               <FormControl>
                 <Input

@@ -1,5 +1,5 @@
 import PlanForm from "@/components/shared/PlanForm";
-import { getUserById } from "@/lib/actions/user.actions";
+import { getUserById, getUserPayPlanById } from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs";
 import { CheckCheckIcon } from "lucide-react";
 import { redirect } from "next/navigation";
@@ -14,6 +14,12 @@ const Page = async () => {
   if (!userId) redirect("/sign-in");
 
   const user: any = await getUserById(userId);
+
+  const plan = await getUserPayPlanById(user._id);
+
+  if (plan.toLowerCase() !== "pro" && plan.toLowerCase() !== "basic") {
+    redirect("/");
+  }
 
   return (
     <div className="w-screen min-h-screen flex-center flex-col gap-6">
@@ -31,36 +37,58 @@ const Page = async () => {
             By entering your github username you get access to these
             repositories:
           </p>
-          <div className="flex flex-col max-w-[90vw] items-start gap-4 pt-2 font-semibold">
-            <div className="flex flex-row gap-3">
-              <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
-                <CheckCheckIcon />
-                <h3 className="text-gray-200 blue-500 text-[18px]">
-                  Saas Typescript + Stripe
-                </h3>
+
+          {plan === "pro" ? (
+            <div className="flex flex-col max-w-[90vw] items-start gap-4 pt-2 font-semibold">
+              <div className="flex flex-row gap-3">
+                <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
+                  <CheckCheckIcon />
+                  <h3 className="text-gray-200 blue-500 text-[18px]">
+                    Saas Typescript + Stripe
+                  </h3>
+                </div>
+                <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
+                  <CheckCheckIcon />
+                  <h3 className="text-gray-200 blue-500 text-[18px]">
+                    Saas Typescript + Paddle
+                  </h3>
+                </div>
               </div>
-              <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
-                <CheckCheckIcon />
-                <h3 className="text-gray-200 blue-500 text-[18px]">
-                  Saas Typescript + Paddle
-                </h3>
+              <div className="flex flex-row gap-3">
+                <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
+                  <CheckCheckIcon />
+                  <h3 className="text-gray-200 blue-500 text-[18px]">
+                    Saas Javascript + Stripe
+                  </h3>
+                </div>
+                <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
+                  <CheckCheckIcon />
+                  <h3 className="text-gray-200 blue-500 text-[18px]">
+                    Saas Javascript + Paddle
+                  </h3>
+                </div>
               </div>
             </div>
-            <div className="flex flex-row gap-3">
-              <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
-                <CheckCheckIcon />
-                <h3 className="text-gray-200 blue-500 text-[18px]">
-                  Saas Javascript + Stripe
-                </h3>
+          ) : (
+            <div className="flex flex-col max-w-[90vw] items-start gap-4 pt-2 font-semibold">
+              <div className="flex flex-row gap-3">
+                <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
+                  <CheckCheckIcon />
+                  <h3 className="text-gray-200 blue-500 text-[18px]">
+                    Saas Javascript + Stripe
+                  </h3>
+                </div>
+                
+                <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
+                  <CheckCheckIcon />
+                  <h3 className="text-gray-200 blue-500 text-[18px]">
+                    Saas Typescript + Stripe
+                  </h3>
+                </div>
               </div>
-              <div className="flex flex-row items-center p-3 rounded-xl bg-blue-500 gap-2 pl-2">
-                <CheckCheckIcon />
-                <h3 className="text-gray-200 blue-500 text-[18px]">
-                  Saas Javascript + Paddle
-                </h3>
-              </div>
+             
             </div>
-          </div>
+          )}
         </div>
         <PlanForm
           buyerId={user._id}
