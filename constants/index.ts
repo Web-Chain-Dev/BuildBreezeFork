@@ -63,6 +63,52 @@ export const tasks = [
   },
 ];
 
+export const SkillData = [
+  {
+    skill_name: "JavaScript",
+    Image: "/assets/nextjs.svg",
+    width: 65,
+    height: 65,
+  },
+  {
+    skill_name: "Tailwind Css",
+    Image: "/assets/tailwind.png",
+    width: 80,
+    height: 80,
+  },
+
+  {
+    skill_name: "TypeScript",
+    Image: "/assets/nextjs.svg",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Next js 14",
+    Image: "/assets/nextjs.svg",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Framer Motion",
+    Image: "/assets/nextjs.svg",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Stripe Payment",
+    Image: "/assets/stripe.webp",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Mongo db",
+    Image: "/assets/mongodb-icon.svg",
+    width: 40,
+    height: 40,
+  },
+];
+
 export const FAQquestions = [
   {
     value: "item-1",
@@ -229,43 +275,43 @@ export const imagesArray = [
 export const techStack = [
   {
     name: "Project 1",
-    src: "/assets/bluepurple2.jpg",
+    src: "/assets/bluepurple12.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     name: "Youtube",
-    src: "/assets/bluepurple3.jpg",
+    src: "/assets/bluepurple13.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     name: "Discord",
-    src: "/assets/bluepurple4.jpg",
+    src: "/assets/bluepurple14.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     name: "Discord",
-    src: "/assets/bluepurple5.jpg",
+    src: "/assets/bluepurple15.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     name: "Discord",
-    src: "/assets/bluepurple6.jpg",
+    src: "/assets/bluepurple16.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     name: "Discord",
-    src: "/assets/bluepurple7.jpg",
+    src: "/assets/bluepurple17.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     name: "Discord",
-    src: "/assets/bluepurple9.jpg",
+    src: "/assets/bluepurple18.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },

@@ -38,11 +38,11 @@ const OpenCards = () => {
       <div className="flex flex-col gap-12">
         <div className=" flex flex-col lg:flex-row justify-center items-center gap-5">
           {techStack.slice(0, 3).map((project, index) => (
+            // ${index === 1 ? "h-[522px]" : "h-[500px]"}
             <motion.div
               key={project.name}
-              className={`card cursor-pointer ${
-                index === 1 ? "h-[522px]" : "h-[500px]"
-              }  bg-cover bg-center rounded-[20px] `}
+              className={`card cursor-pointer 
+                bg-cover bg-center h-[500px] rounded-[20px] `}
               variants={cardVariants}
               initial="expanded"
               animate={index !== expandedIndex ? "collapsed" : "expanded"}
@@ -52,11 +52,11 @@ const OpenCards = () => {
                 backgroundImage: `url(${project.src})`,
               }}
             >
-              <div
-               
-                className="card-content h-full flex flex-col justify-end"
-              >
-                <div  onClick={(e) => e.stopPropagation()} className="card-footer rounded-b-[20px] bg-gray-800 bg-opacity-75 min-h-[100px] flex flex-col items-center justify-center">
+              <div className="card-content h-full flex flex-col justify-end">
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  className="card-footer rounded-b-[20px] bg-gray-800 bg-opacity-75 min-h-[100px] flex flex-col items-center justify-center"
+                >
                   <h2 className="text-xl font-semibold text-white text-center">
                     Card {index + 1}
                   </h2>
@@ -75,11 +75,11 @@ const OpenCards = () => {
           {techStack.slice(3, 7).map((project, index) => {
             index = index + 3;
             return (
+              // ${ index === 4 || index === 5 ? "h-[522px]" : "h-[500px]" }
               <motion.div
                 key={project.name}
-                className={`card cursor-pointer ${
-                  index === 4 || index === 5 ? "h-[522px]" : "h-[500px]"
-                }  bg-cover bg-center rounded-[20px] `}
+                className={`card cursor-pointer 
+                  bg-cover bg-center h-[500px] rounded-[20px] `}
                 variants={cardVariants}
                 initial="expanded"
                 animate={index !== expandedIndex ? "collapsed" : "expanded"}
@@ -89,10 +89,11 @@ const OpenCards = () => {
                   backgroundImage: `url(${project.src})`,
                 }}
               >
-                <div 
-             
-                className="card-content h-full flex flex-col justify-end">
-                  <div    onClick={(e) => e.stopPropagation()} className="card-footer rounded-b-[20px] bg-gray-800 bg-opacity-75 min-h-[100px] flex flex-col items-center justify-center">
+                <div className="card-content h-full flex flex-col justify-end">
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="card-footer rounded-b-[20px] bg-gray-800 bg-opacity-75 min-h-[100px] flex flex-col items-center justify-center"
+                  >
                     <h2 className="text-xl font-semibold text-white text-center">
                       Card {index + 1}
                     </h2>

@@ -122,7 +122,10 @@ const ImageSlider = () => {
   ];
 
   return (
-    <div className="flex items-center flex-col gap-2 md:gap-4 pt-52 justify-center bg-[#032B44]  md:h-screen py-24 w-screen">
+    <div
+      className="flex items-center bg-cover bg-center flex-col gap-2 md:gap-4 pt-52 justify-center bg-[#032B44]  md:h-screen py-24 w-screen"
+      style={{ backgroundImage: `url(/assets/bluepurple14.jpg)` }}
+    >
       <div className="flex  flex-col gap-2 text-center">
         <h3 className="text-purple-500  text-5xl lg:text-6xl font-semibold">
           Boost your Production
@@ -162,7 +165,15 @@ const ImageSlider = () => {
         >
           <StepBack />
         </button>
-        <Button className="flex flex-row p-6 bg-blue-500 hover:bg-purple-700 text-xl font-semibold rounded-xl text-gray-200">
+        <Button
+          onClick={() => {
+            const paymentElement = document.getElementById("payment");
+            if (paymentElement) {
+              paymentElement.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          className="flex flex-row p-6 bg-blue-500 hover:bg-purple-700 text-xl font-semibold rounded-xl text-gray-200"
+        >
           <Image
             src="/assets/logo.png"
             alt="thundercloud logo"

@@ -6,8 +6,9 @@ import { Button } from "../ui/button";
 import MobileMenuBar from "./MobileMenuBar";
 import FeedBackDialog from "./FeedBackDialog";
 import Image from "next/image";
-import { UserButton, useClerk } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton, useClerk } from "@clerk/nextjs";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Navbar = () => {
   const path = usePathname();
@@ -27,20 +28,38 @@ const Navbar = () => {
             BuildBreeze
           </h1>
         </div>
-        <div className="hidden lg:flex flex-row gap-10 pt-1 items-center">
-          {/* {NavLinks.map((link) => (
+        {/* <div className="hidden lg:flex flex-row gap-10 pt-1 items-center">
+           {NavLinks.map((link) => (
             <h3
               key={link.name}
               className="text-gray-300 text-xl cursor-pointer"
             >
               {link.name}
             </h3>
-          ))} */}
-        </div>
+          ))} 
+        </div> */}
       </div>
 
       {path === "/" ? (
-        <FeedBackDialog classes="hidden md:flex" />
+        <>
+          <SignedIn>
+            <Link
+              href="/profile"
+              className="px-7 py-4 bg-blue-500 hover:bg-purple-700 text-xl font-semibold rounded-xl text-gray-200"
+            >
+              Your Profile
+            </Link>
+          </SignedIn>
+          <SignedOut>
+            <Link
+              href="/sign-in"
+              className="px-7 py-4 bg-blue-500 hover:bg-purple-700 text-xl font-semibold rounded-xl text-gray-200"
+            >
+              Your Profile
+            </Link>
+          </SignedOut>
+          {/* <FeedBackDialog classes="hidden md:flex" /> */}
+        </>
       ) : (
         <Button
           className="p-6 px-4 bg-blue-500 flex items-center flex-row gap-3 hover:bg-purple-700 text-xl font-semibold rounded-xl text-gray-200"
