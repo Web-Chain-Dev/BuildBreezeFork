@@ -37,8 +37,6 @@ const ImageSlider = () => {
     });
   };
 
-  const logCenterCardIndex = () => {};
-
   const handleClick = (clickedIndex: number) => {
     console.log(`Card with index ${clickedIndex} was clicked.`);
     // Example: Update the state to reflect the clicked card's index

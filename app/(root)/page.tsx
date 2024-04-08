@@ -10,7 +10,10 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div className="flex flex-col gap-12 w-screen overflow-x-hidden">
+    <div
+      className="flex flex-col gap-12 w-screen overflow-x-hidden"
+
+    >
       <RealHero />
       <Benefits />
       <RealTechStack />

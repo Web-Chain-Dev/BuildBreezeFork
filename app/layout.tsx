@@ -27,7 +27,7 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
-        <body className={IBMPlex.className}>{children}</body>
+        <body className={`bg-[#032B44] ${IBMPlex.className}`}>{children}</body>
       </html>
     </ClerkProvider>
   );

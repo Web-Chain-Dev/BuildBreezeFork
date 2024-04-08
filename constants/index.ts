@@ -12,16 +12,55 @@ export const NavLinks = [
     href: "/",
   },
 ];
-
 export const tasks = [
-  { description: "Setting up emails", hours: 4 },
-  { description: "Designing a landing page", hours: 6 },
-  { description: "Handling Stripe webhooks", hours: 4 },
-  { description: "SEO tags", hours: 2 },
-  { description: "Applying for Google OAuth", hours: 1 },
-  { description: "Setting up DNS records", hours: 3 },
-  { description: "Protected API routes", hours: 2 },
-  { description: "Overthinking", hours: "∞" },
+  {
+    description: "Setting up emails",
+    hours: 4,
+    counterDescription: "Setting up emails",
+    counterHours: "25 mins",
+  },
+  {
+    description: "Designing a landing page",
+    hours: 6,
+    counterDescription: "Adding already made components",
+    counterHours: "20-30 mins",
+  },
+  {
+    description: "Handling Stripe/Paddle webhooks",
+    hours: 4,
+    counterDescription: "Handling Stripe webhooks",
+    counterHours: "8 mins",
+  },
+  {
+    description: "SEO tags",
+    hours: 2,
+    counterDescription: "SEO tags",
+    counterHours: "10 mins",
+  },
+  {
+    description: "Applying for Google OAuth",
+    hours: 1,
+    counterDescription: "Setting up Google and Github oAuth with Clerk",
+    counterHours: "5 mins",
+  },
+  {
+    description: "Setting up DNS records",
+    hours: 3,
+    counterDescription: "Setting up DNS records",
+    counterHours: "15 mins",
+  },
+  {
+    description: "Protected API routes",
+    hours: 2,
+    counterDescription: "Protected API routes",
+    counterHours: "5 mins",
+  },
+  {
+    description: "Overthinking",
+    hours: "∞",
+    counterDescription: "Time saved to work on you actual product",
+    counterHours: "20+ hrs",
+  },
 ];
 
 export const FAQquestions = [

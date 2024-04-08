@@ -42,13 +42,7 @@ const InfoCard = ({ image, image1, title, text }: Props) => {
         className="flip-card  w-[36vw] h-[80vh] rounded-xl cursor-pointer"
         onClick={handleFlip}
       >
-        <motion.div
-          className="flip-card-inner h-full"
-          initial={false}
-          animate={{ rotateY: isFlipped ? 180 : 360 }}
-          transition={{ duration: 0.6, animationDirection: "normal" }}
-          onAnimationComplete={() => setIsAnimating(false)}
-        >
+        <motion.div>
           <div
             className="flip-card-front w-full h-full flex items-center group relative bg-cover bg-center  text-white rounded-xl p-4"
             style={{ backgroundImage: `url(${image})` }}
@@ -69,10 +63,6 @@ const InfoCard = ({ image, image1, title, text }: Props) => {
                 </p>
               ))}
             </div>
-            {/* <div className="absolute inset-0 w-full rounded-md  h-full bg-black opacity-0 group-hover:opacity-40" />
-          <div className="absolute inset-0 w-full text-[20px] pb-10 h-full hidden group-hover:flex items-center z-[20]  justify-center ">
-            Learn more &gt;
-          </div> */}
           </div>
 
           <div

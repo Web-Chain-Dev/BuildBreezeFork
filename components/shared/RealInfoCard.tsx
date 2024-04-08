@@ -31,9 +31,10 @@ const RealInfoCard = ({ image, image1, title, text }: Props) => {
                 height={22}
                 className="w-[60px] md:w-[110px]"
               />
+
               <p className="text-[16px] md:text-[18px] text-white font-semibold z-[10]">
-                {task.description} -{" "}
-                <span className="text-green-500">{task.hours} hrs</span>
+                {task.counterDescription} -{" "}
+                <span className="text-green-500">{task.counterHours}</span>
               </p>
             </div>
           ))}
