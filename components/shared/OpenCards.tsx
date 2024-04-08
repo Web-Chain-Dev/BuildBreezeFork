@@ -1,11 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { imagesArray, techStack } from "@/constants";
+import { HeartIcon } from "lucide-react";
 
 const OpenCards = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 1024); // Adjust the breakpoint as needed
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Call the function initially to set the state
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleCardClick = (index: any) => {
     setExpandedIndex(index === expandedIndex ? -1 : index);
@@ -13,10 +26,10 @@ const OpenCards = () => {
 
   const cardVariants = {
     expanded: {
-      width: "80vw",
+      width: isLargeScreen ? "82vw" : "92vw",
     },
     collapsed: {
-      width: "300px",
+      width: isLargeScreen ? "260px" : "260px", // Adjust as needed
     },
   };
 
@@ -27,7 +40,9 @@ const OpenCards = () => {
           {techStack.slice(0, 3).map((project, index) => (
             <motion.div
               key={project.name}
-              className={`card cursor-pointer h-[500px] bg-cover bg-center rounded-[20px] `}
+              className={`card cursor-pointer ${
+                index === 1 ? "h-[522px]" : "h-[500px]"
+              }  bg-cover bg-center rounded-[20px] `}
               variants={cardVariants}
               initial="expanded"
               animate={index !== expandedIndex ? "collapsed" : "expanded"}

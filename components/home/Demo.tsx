@@ -3,7 +3,7 @@ import React from "react";
 const Demo = () => {
   return (
     <div className="w-screen h-full pt-20">
-      <div className="flex-center text-purple-500  text-6xl lg:text-7xl font-semibold flex-col gap-12">
+      <div className="text-center flex-center text-purple-500  text-6xl lg:text-7xl font-semibold flex-col gap-12">
         <h3>Project Demo</h3>
         <iframe
           width="560"
