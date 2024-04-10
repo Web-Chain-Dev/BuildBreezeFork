@@ -28,9 +28,9 @@ const Page = async () => {
     redirect("/");
   }
 
-  if (loggedInToGithub === true) {
-    redirect("/profile");
-  }
+  // if (loggedInToGithub === true) {
+  //   redirect("/profile");
+  // }
 
   return (
     <div
