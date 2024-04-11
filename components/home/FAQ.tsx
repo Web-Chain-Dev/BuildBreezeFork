@@ -9,8 +9,11 @@ import { FAQquestions } from "@/constants";
 
 const FAQ = () => {
   return (
-    <div className="flex flex-col gap-12 h-screen items-center justify-center"   id="faq">
-      <h3 className="text-purple-500 text-center text-5xl md:text-6xl lg:text-7xl font-semibold flex-col gap-12">
+    <div
+      className="flex flex-col gap-12 h-screen items-center justify-center"
+      id="faq"
+    >
+      <h3 className="text-purple-500 text-center text-5xl md:text-6xl lg:text-7xl font-semibold ">
         Frequently Asked Questions
       </h3>
       <Accordion

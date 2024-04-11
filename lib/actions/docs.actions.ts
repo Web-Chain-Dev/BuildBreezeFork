@@ -1,4 +1,4 @@
-"use server"
+"use server";
 
 // server/actions/documentation.ts
 import { connectToDatabase } from "../database/mongoose";
@@ -7,9 +7,11 @@ import Documentation from "../database/models/docs.model";
 
 // Create Documentation
 
-
-
-export async function createDoc(doc: { title: string; content: string }) {
+export async function createDoc(doc: {
+  title: string;
+  content: string;
+  library: string;
+}) {
   try {
     await connectToDatabase();
 
@@ -57,6 +59,36 @@ export async function deleteDocumentation(docId: string) {
     const deletedDoc = await Documentation.findByIdAndDelete(docId);
     if (!deletedDoc) throw new Error("Documentation not found");
     return JSON.parse(JSON.stringify(deletedDoc));
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+// export async function findDocumentationByLibrary(libraryName: string) {
+//   try {
+//     await connectToDatabase();
+//     const docs = await Documentation.find({ library: libraryName });
+//     if (!docs)
+//       throw new Error("No documentation found for the specified library");
+//     // Extract content fields from the found documents
+//     const contentFields = docs.map((doc) => doc.content);
+
+//     // console.log(contentFields);
+//     return contentFields;
+//   } catch (error) {
+//     handleError(error);
+//   }
+// }
+
+export async function findDocumentationByLibrary(libraryName: string) {
+  try {
+    await connectToDatabase();
+    const docs = await Documentation.find({ library: libraryName });
+    if (!docs || docs.length === 0) console.log("doc not found");
+    // throw new Error("No documentation found for the specified library");
+    // Return the entire array of documents
+
+    return JSON.parse(JSON.stringify(docs));
   } catch (error) {
     handleError(error);
   }

@@ -316,3 +316,12 @@ export const techStack = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 ];
+
+export const sidebarItems = [
+  { name: "Starting out", href: "/doc/starting-out" },
+  { name: "Clerk Auth", href: "/doc/clerk" },
+  { name: "Mongo DB", href: "/doc/mongo-db" },
+  { name: "Stripe", href: "/doc/stripe" },
+  { name: "ShadCn", href: "/doc/shadcn" },
+  { name: "Tailwind classes", href: "/doc/tailwind-classes" },
+];

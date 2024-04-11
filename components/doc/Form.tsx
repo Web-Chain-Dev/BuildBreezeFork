@@ -20,6 +20,7 @@ import { createDoc } from "@/lib/actions/docs.actions";
 type DocumentationFormType = {
   title: string;
   content: string;
+  library: string;
 };
 
 const formSchema = z.object({
@@ -29,6 +30,9 @@ const formSchema = z.object({
   content: z.string().min(1, {
     message: "Content must be at least 1 character.",
   }),
+  library: z.string().min(1, {
+    message: "Library must be at least 1 character.",
+  }),
 });
 
 const DocumentationForm = () => {
@@ -37,23 +41,24 @@ const DocumentationForm = () => {
     defaultValues: {
       title: "",
       content: "",
+      library: "",
     },
   });
 
   const router = useRouter();
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    let { title, content } = data;
+    let { title, content, library } = data;
 
-    // Call createDocumentation with the extracted title and content
-    const success = await createDoc({ title, content });
+    const success = await createDoc({ title, content, library });
 
     if (success) {
       form.reset({
-        title: "", // Reset the title field to an empty string
-        content: "", // Reset the content field to an empty string
+        title: "",
+        content: "",
+        library: "",
       });
-      router.push("/documentation"); // Redirect to the documentation page or wherever you want
+      router.push("/documentation");
     }
   };
 
@@ -63,6 +68,7 @@ const DocumentationForm = () => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-6 flex flex-col pb-2 items-center"
       >
+        {/* Title and Library fields remain unchanged */}
         <FormField
           control={form.control}
           name="title"
@@ -84,6 +90,26 @@ const DocumentationForm = () => {
         />
         <FormField
           control={form.control}
+          name="library"
+          render={({ field }) => (
+            <FormItem className="flex flex-col justify-center">
+              <FormLabel className="text-gray-300 text-center md:max-w-[18vw]">
+                Library
+              </FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Library Name"
+                  {...field}
+                  className="border-blue-500 text-center p-6 text-[20px] text-gray-200 rounded-[18px]"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        {/* Content field now uses a textarea */}
+        <FormField
+          control={form.control}
           name="content"
           render={({ field }) => (
             <FormItem className="flex flex-col justify-center">
@@ -91,10 +117,10 @@ const DocumentationForm = () => {
                 Documentation Content
               </FormLabel>
               <FormControl>
-                <Input
-                  placeholder="Documentation Content"
+                <textarea
                   {...field}
-                  className="border-blue-500 text-center p-6 text-[20px] text-gray-200 rounded-[18px]"
+                  className="border-blue-500 text-center p-6 text-[20px] text-gray-200 rounded-[18px] w-full"
+                  rows={10} // Adjust the number of rows as needed
                 />
               </FormControl>
               <FormMessage />

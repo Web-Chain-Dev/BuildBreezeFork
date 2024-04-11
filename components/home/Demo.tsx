@@ -2,7 +2,7 @@ import React from "react";
 
 const Demo = () => {
   return (
-    <div className="w-screen h-full py-12 md:py-32"   id="demo">
+    <div className="w-screen h-full py-12 md:py-32" id="demo">
       <div className="text-center flex-center text-purple-500  text-6xl lg:text-7xl font-semibold flex-col gap-12">
         <h3>Project Demo</h3>
         <iframe

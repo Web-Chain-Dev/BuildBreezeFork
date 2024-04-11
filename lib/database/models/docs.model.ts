@@ -9,6 +9,12 @@ const DocumentationSchema = new Schema({
     type: String,
     required: true,
   },
+  library: {
+    // New field for the library
+    type: String,
+    default: "Clerk",
+    required: true, // Make it required if you want to enforce that every documentation entry must have a library
+  },
   createdAt: {
     type: Date,
     default: Date.now,
