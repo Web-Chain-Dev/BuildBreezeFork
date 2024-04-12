@@ -43,10 +43,10 @@ const PricingPlan = ({
       >
         <div className="absolute inset-0 w-full  h-full bg-black opacity-15 rounded-xl" />
 
-        <h3 className="text-4xl font-bold text-center mb-4 text-purple-400 z-[10]">
+        <h3 className="text-4xl font-bold text-center mb-4 text-white z-[10]">
           {plan}
         </h3>
-        <h3 className="text-5xl  text-gray-800 text-center pb-4 font-semibold">
+        <h3 className="text-5xl  text-yellow-400 [#c6b241] text-center pb-4 font-semibold">
           ${amount} USD
         </h3>
         <ul className="text-center text-white gray-300 text-[20px] z-[10]">

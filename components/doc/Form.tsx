@@ -17,12 +17,6 @@ import { z } from "zod";
 import { useRouter } from "next/navigation";
 import { createDoc } from "@/lib/actions/docs.actions";
 
-type DocumentationFormType = {
-  title: string;
-  content: string;
-  library: string;
-};
-
 const formSchema = z.object({
   title: z.string().min(1, {
     message: "Title must be at least 1 character.",
@@ -33,6 +27,12 @@ const formSchema = z.object({
   library: z.string().min(1, {
     message: "Library must be at least 1 character.",
   }),
+  filename: z.string().min(1, {
+    message: "Filename must be at least 1 character.",
+  }),
+  description: z.string().min(1, {
+    message: "Description must be at least 1 character.",
+  }),
 });
 
 const DocumentationForm = () => {
@@ -42,23 +42,33 @@ const DocumentationForm = () => {
       title: "",
       content: "",
       library: "",
+      filename: "", // Add default value for filename
+      description: "", // Add default value for description
     },
   });
 
   const router = useRouter();
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    let { title, content, library } = data;
+    let { title, content, library, filename, description } = data; // Destructure filename and description
 
-    const success = await createDoc({ title, content, library });
+    const success = await createDoc({
+      title,
+      content,
+      library,
+      filename,
+      description,
+    }); // Pass filename and description
 
     if (success) {
       form.reset({
         title: "",
         content: "",
         library: "",
+        filename: "", // Reset filename
+        description: "", // Reset description
       });
-      router.push("/documentation");
+      router.push("/doc/starting-out");
     }
   };
 
@@ -107,6 +117,45 @@ const DocumentationForm = () => {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="filename"
+          render={({ field }) => (
+            <FormItem className="flex flex-col justify-center">
+              <FormLabel className="text-gray-300 text-center md:max-w-[18vw]">
+                File Name
+              </FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Filename"
+                  {...field}
+                  className="border-blue-500 text-center p-6 text-[20px] text-gray-200 rounded-[18px]"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="description"
+          render={({ field }) => (
+            <FormItem className="flex flex-col justify-center">
+              <FormLabel className="text-gray-300 text-center md:max-w-[18vw]">
+                Description
+              </FormLabel>
+              <FormControl>
+                <textarea
+                  {...field}
+                  className="border-blue-500 text-center p-6 text-[20px] text-gray-200 rounded-[18px] w-full"
+                  rows={10} // Adjust the number of rows as needed
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         {/* Content field now uses a textarea */}
         <FormField
           control={form.control}

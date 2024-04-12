@@ -12,12 +12,12 @@ const Sidebar = () => {
   const currentPathSegment = pathname.split("/").pop();
 
   return (
-    <div className="bg-gray-800 text-white w-[20vw] min-h-screen p-4">
+    <div className="bg-gray-800 text-white z-[10] w-[20vw] min-h-screen p-4">
       <div className="flex items-center justify-center mb-8">
         <Image src="/assets/logo.png" alt="Logo" width={56} height={56} />
         <span className="text-2xl ml-2">BuildBreeze</span>
       </div>
-      <ul>
+      <ul className="w-full flex flex-col">
         {sidebarItems.map((item, index) => {
           // Extract the last part of the item.href
           const itemPathSegment = item.href.split("/").pop();

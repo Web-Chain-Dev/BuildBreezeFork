@@ -146,12 +146,12 @@ export const plans = [
   {
     plan: "Basic",
     amount: 25,
-    image: "/assets/city1.png",
+    image: "/assets/bluepurple16.jpg",
   },
   {
     plan: "Pro",
     amount: 35,
-    image: "/assets/planet2.png",
+    image: "/assets/bluepurple15.jpg",
   },
 ];
 export const imagesArray = [

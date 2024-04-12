@@ -15,7 +15,7 @@ const Navbar = () => {
   const { signOut } = useClerk();
   const router = useRouter();
   return (
-    <div className="header h-[10px]">
+    <div className="header h-[10px] z-[20]">
       <div className="header-elements">
         <div className="flex flex-row items-center gap-1 md:gap-2">
           <Image

@@ -15,7 +15,7 @@ const RealInfoCard = ({ image, image1, title, text }: Props) => {
       className="w-[90vw] overflow-hidden rounded-xl relative  p-3 md:p-12  items-center bg-cover bg-center"
       style={{ backgroundImage: `url(${image})` }}
     >
-      <div className="absolute inset-0 rounded-xl h-full w-full bg-black opacity-10" />
+      <div className="absolute inset-0 rounded-xl h-full w-full bg-black opacity-30" />
       <div className="flex justify-center w-full z-[10]">
         <div className="flex flex-col gap-4 md:gap-3 items-center z-[10]">
           {tasks.map((task, index) => (
@@ -27,9 +27,9 @@ const RealInfoCard = ({ image, image1, title, text }: Props) => {
               <Image
                 src="/assets/arrow2.png"
                 alt="arrow"
-                width={110}
+                width={100}
                 height={22}
-                className="w-[60px] md:w-[110px]"
+                className="w-[60px] md:w-[100px]"
               />
 
               <p className="text-[16px] md:text-[18px] text-white font-semibold z-[10]">

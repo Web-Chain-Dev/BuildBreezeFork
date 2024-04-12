@@ -13,7 +13,7 @@ const Benefits = () => {
         Stop wasting time on the mundane
       </h3>
       <RealInfoCard
-        image="/assets/bluepurple19.jpg"
+        image="/assets/bluepurple16.jpg"
         image1="/assets/GreenCity.jpg"
         title="Instead of"
         text="working on the repetitive and mundane"

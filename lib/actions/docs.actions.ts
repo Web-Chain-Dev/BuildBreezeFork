@@ -11,6 +11,8 @@ export async function createDoc(doc: {
   title: string;
   content: string;
   library: string;
+  description: string;
+  filename: string;
 }) {
   try {
     await connectToDatabase();

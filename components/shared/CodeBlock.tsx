@@ -3,8 +3,9 @@
 import React, { useState } from "react"; // Import useState
 import { Copy, CopyCheck } from "lucide-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-
+import {
+  atomDark
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 type CodeBlockProps = {
   language: string;
   value: string;
@@ -30,9 +31,9 @@ const CodeBlock = ({ language, value, filename }: CodeBlockProps) => {
   };
 
   return (
-    <div className="relative text-[15px] max-w-[82vw] md:max-w-[52vw] w-full md:w-1/2 lg:w-1/3">
-      <div className="max-w-[90vw] rounded-xl md:w-[42vw]">
-        <div className="absolute w-[90vw] md:w-[42vw] z-[20] py-6 h-[28px] p-2 bg-[#1d1f21] rounded-t-xl flex-between">
+    <div className="relative text-[15px] max-w-[82vw] md:max-w-[52vw] w-full md:w-1/2 lg:w-1/3 mt-6">
+      <div className="max-w-[90vw] rounded-[22px] md:w-[42vw]">
+        <div className="absolute -top-10 [100px] w-[90vw] md:w-[42vw] z-[20] py-6 h-[28px] p-2 bg-[#1d1f21] rounded-t-[20px] flex-between">
           <div className="text-[#a4f342]">{filename}</div>
 
           <button onClick={handleCopy}>
@@ -40,7 +41,7 @@ const CodeBlock = ({ language, value, filename }: CodeBlockProps) => {
             {/* Conditional rendering based on state */}
           </button>
         </div>
-        <div className="h-full">
+        <div className="h-full rounded-[22px]">
           <SyntaxHighlighter language={language} style={atomDark}>
             {value}
           </SyntaxHighlighter>

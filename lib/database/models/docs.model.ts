@@ -10,10 +10,17 @@ const DocumentationSchema = new Schema({
     required: true,
   },
   library: {
-    // New field for the library
     type: String,
     default: "Clerk",
-    required: true, // Make it required if you want to enforce that every documentation entry must have a library
+    required: true,
+  },
+  description: {
+    type: String, // Assuming the description is a string
+    required: true, // Make it optional or set to true if it's required
+  },
+  filename: {
+    type: String, // Assuming the filename is a string
+    required: true, // Make it optional or set to true if it's required
   },
   createdAt: {
     type: Date,

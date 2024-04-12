@@ -6,15 +6,18 @@ import NewHero from "@/components/home/NewHero";
 import Pricing from "@/components/home/Pricing";
 import RealHero from "@/components/home/RealHero";
 import RealTechStack from "@/components/home/RealTechStack";
+import TrueHero from "@/components/home/TrueHero";
 import React from "react";
 
 const Home = () => {
   return (
     <div className="flex flex-col gap-12 w-screen overflow-x-hidden">
-      <RealHero />
+      <TrueHero />
+      {/* <RealHero /> */}
       {/* <NewHero /> */}
       <Benefits />
-      <RealTechStack />
+      <RealHero />
+      {/* <RealTechStack /> */}
       <Demo />
       <Pricing />
       <FAQ />

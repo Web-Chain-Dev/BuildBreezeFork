@@ -24,7 +24,8 @@ const Page = async () => {
   // const loggedInToGithub = loggedInToGithubResult.loggedInToGithub;
 
   if (plan.toLowerCase() !== "pro" && plan.toLowerCase() !== "basic") {
-    redirect("/");
+    // redirect("/");
+    console.log("No plan");
   }
   return (
     <div
